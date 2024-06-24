@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style>
+body {
+  background-color: MediumSeaGreen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+<body>
 
 
 <div class="card">
@@ -47,6 +59,7 @@
 <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
 
 <a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
-
+</body>
+</html>
 
 {% endblock %}

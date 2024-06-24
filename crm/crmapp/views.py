@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, AddRecordForm
 from .models import Record
+from django.db.models import Q
 
 def home(request):
     records = Record.objects.all()
@@ -22,7 +23,13 @@ def home(request):
     else:
         return render(request, 'home.html', {'records': records})
 
-
+def search_bar(request):
+    if request.method=="POST":
+        search_query=request.POST['search_query']
+        records=Record.objects.filter(Q(first_name__contains=search_query)|Q(last_name__contains=search_query)|Q(email__contains=search_query))
+        return render(request, 'search_bar.html', {'search_query':search_query,'records':records})
+    else:
+        return render(request, 'search_bar.html', {})
 def logout_user(request):
 
     logout(request)

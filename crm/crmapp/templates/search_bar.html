@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+  <br>
+  {% if search_query %}
+  <h1> </h1>
+    <br>
+    {% for record in records %}
+    <a href ="{% url 'record' record.id %}">{{record.first_name}} {{record.last_name}} </a></br>
+    {% endfor %}
+  {% else %}
+    <h1> Please enter a search text!</h1>
+  {% endif %}
+{% endblock %}

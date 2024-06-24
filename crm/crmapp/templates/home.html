@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
+<style>
+body {
+  background-color: MediumSeaGreen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+
+<body>
+
+
 
 {% if user.is_authenticated %}
 
@@ -61,4 +75,7 @@
 
 </div>
 {% endif %}
+
+</body>
+
 {% endblock %}
